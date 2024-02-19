@@ -1,0 +1,67 @@
+#container {
+  width: 100%;
+  height: 500px;
+  display: grid;
+  grid-template-areas: 
+    "b1 b2 b3"
+    "b4 b5 b5";
+  gap: 10px;
+}
+
+#container > div {
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+#container .b1 {
+  grid-area: b1;
+  background-image: url('https://hips.hearstapps.com/hmg-prod/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=0.752xw:1.00xh;0.175xw,0&resize=1200:*');
+}
+
+#container .b2 {
+  grid-area: b2;
+  background-image: url('https://cdn-prod.medicalnewstoday.com/content/images/articles/322/322868/golden-retriever-puppy.jpg');
+}
+
+#container .b3 {
+  grid-area: b3;
+  background-image: url('https://www.cdc.gov/healthypets/images/pets/cute-dog-headshot.jpg?_=42445');
+}
+
+#container .b4 {
+  grid-area: b4;
+  background-image: url('https://hips.hearstapps.com/ghk.h-cdn.co/assets/16/08/gettyimages-530330473.jpg?crop=0.659xw:0.990xh;0.123xw,0.00779xh&resize=980:*');
+}
+
+#container .b5 {
+  grid-area: b5;
+  background-image: url('https://image.petmd.com/files/styles/978x550/public/dog-allergies.jpg');
+}
+
+@media (max-width: 900px) {
+  #container {
+    grid-template-areas:"b5 b4 b3 b1"
+                        "b2 b2 . b1"
+                        "b2 b2 . b1"
+  }
+}
+
+@media (max-width: 470px) {
+  #container {
+    grid-template-areas:
+      "b5 b4 b3 b1"
+      "b2 . . b1"
+      "b2 . . b1";
+  }
+}
+
+@media (max-width: 350px) {
+  #container {
+    grid-template-areas:
+      "b5 b4 b4 b1"
+      "b2 . . b1"
+      "b2 b3 b3 b1";
+  }
+}

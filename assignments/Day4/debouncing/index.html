@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q3 Closure Debounce</title>
+    <style>
+       body{
+            background-color: black;         
+        }
+label {
+    display: block;
+    font: 1rem 'Fira Sans', sans-serif;
+    color: tomato;
+    font-weight: bold;
+}
+input,
+label {
+    margin: .4rem 0;
+}
+#wall{          
+    display: grid; 
+    grid-template-columns: auto ;
+max-width: fit-content;
+
+
+}
+#borde>img{
+width: 100px;  
+height: 100px;
+}
+#color{
+    color: white;
+   
+}
+#border{
+    border: 1.5px solid yellowgreen ;
+    width: 300px;
+    border-radius: 5px;
+    background-color: grey;
+}
+#borde{
+ 
+    width: 100px;
+    margin-right: 0px;
+    display: inline-block;
+}
+#borde1{
+
+    width: 200px;
+    text-align: left;
+    margin-left: 0px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#showpopcolor{
+    width: 300px;
+  
+}
+#toptrend{
+color: white;
+text-align: center;
+}
+#showpop{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    width: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 15px;
+margin-top: 20px;
+}
+    </style>
+</head>
+<body>
+    
+    <label for="site-search">Search  Movie here:</label>
+<input type="text" id="site" name="Movie" value="" oninput="debounce(displayMovies,1000)"placeholder="Search Popular Movie Here">
+
+<!-- <button id="search">Search</button> -->
+
+<div id="wall"></div>
+
+<div id="showdetails"></div>
+
+<h2 id="toptrend">Top Trending Movies
+    
+<div id="showpop"></div>
+
+</h2>
+</body>
+</html>
+<script>
+
+
+ let key="837e6540e7d5b821dc6572cd60af4c6e";
+let url=`https://api.themoviedb.org/3/movie/popular?api_key=837e6540e7d5b821dc6572cd60af4c6e`;
+console.log("yes")
+async function getProducts(){
+    console.log("no")
+    try{
+    let response= await fetch(url);
+
+   let collected_data = await response.json();
+
+    console.log("collected_data:",collected_data);
+
+    appendpopular(collected_data);
+}catch(err){
+    console.log("err:",err)
+}
+
+}
+
+function  appendpopular(pop){
+    document.getElementById("wall").innerHTML="";
+        document.getElementById("showdetails").innerHTML=null;
+       
+    console.log("pop:",pop.results);
+
+    pop.results.forEach(function(popular){
+      console.log(popular)
+      let div= document.createElement("div");
+      
+      div.setAttribute("id","showpopcolor")
+  
+
+
+   let img = document.createElement("img");
+   let image = popular.poster_path ;
+   img.src =`https://image.tmdb.org/t/p/w500${image}`
+  img.style.height="550px";
+  img.style.width="300px"
+
+   let name = document.createElement("p");
+   name.innerText = "Movie Name:- "+popular.original_title;
+
+  let average = document.createElement("p");
+  average.innerText ="Popularity:- "+((popular.vote_average)*10+"%") ;
+
+  let date = document.createElement("p");
+  date.innerText="Date of Release:- "+popular.release_date;
+
+  div.append(img,name,average,date);
+
+  showpop.append(div);
+ 
+        });
+
+}
+
+getProducts()
+
+   
+let bomb;
+
+async function show(){
+
+    let api_key="4dbdeb32";
+// console.log(Movie);
+try{
+    var Movie=document.getElementById("site").value; 
+   
+   let response=await fetch(`https://www.omdbapi.com/?s=${Movie}&apikey=${api_key}`);
+   let data=await response.json();
+   return data.Search;
+
+    console.log(data.Search);
+}
+catch(err){
+        var image=document.createElement("img");
+        image.src="https://media.istockphoto.com/photos/error-page-not-found-picture-id1153372686?b=1&k=20&m=1153372686&s=170667a&w=0&h=4veHHEjI5rq2qpYWMXcHSzXfrp22SMwa79DsqqiYfAw=";
+        wall.append(image);
+         console.log("err:",err)
+
+    }
+
+}
+    async function displayMovies(){
+    console.log("fireafter 3 Seconds")
+    document.getElementById("wall").innerHTML=null;
+document.getElementById("showdetails").innerHTML=null;
+document.getElementById("showpop").innerHTML="";
+document.getElementById("toptrend").innerHTML="";
+    let moviedata= await show();
+   
+   // console.log(moviedata);
+    if(moviedata=== undefined){
+        return false;
+    }
+    console.log(moviedata);
+
+
+ moviedata.forEach(function(movie){
+    
+        let maindiv=document.createElement("div");
+    maindiv.setAttribute("id","border")
+
+    maindiv.addEventListener("click",function(){
+       //console.log(movie)
+       showmovie(movie);
+     
+  });
+    let div=document.createElement("div");
+    div.setAttribute("id","borde")
+    
+        let img=document.createElement("img");
+         img.src=movie.Poster;
+    
+         let div1=document.createElement("div");
+         div1.setAttribute("id","borde1")
+             
+        let Title=document.createElement("p");
+        Title.innerText=movie.Title;
+        Title.setAttribute("id","color");
+
+        let Year=document.createElement("p");
+        Year.innerText=movie.Year;
+        Year.setAttribute("id","color");
+   
+        
+div.append(img)
+div1.append(Title,Year)
+maindiv.append(div,div1)
+
+   wall.append(maindiv)
+});
+
+
+    function showmovie(movie){
+        document.getElementById("wall").innerHTML="";
+        document.getElementById("showdetails").innerHTML=null;
+    
+    // window.location.href="we1.html";
+         console.log(movie)
+
+
+         let div=document.createElement("div");
+          div.setAttribute("id","selectmovie")
+    
+        let img=document.createElement("img");
+        img.src=movie.Poster;
+       
+        let Title=document.createElement("p");
+        Title.innerText=movie.Title;
+        Title.setAttribute("id","color");
+
+        let Year=document.createElement("p");
+        Year.innerText=movie.Year;
+        Year.setAttribute("id","color");
+
+
+        let imdb=document.createElement("p");
+        imdb.innerText=movie.imdbID;
+        imdb.setAttribute("id","color");
+
+div.append(img,Title,Year,imdb)
+
+showdetails.append(div)
+
+
+   }   
+
+}
+
+function debounce(func, delay){
+
+    clearTimeout(bomb);
+
+ bomb= setTimeout(function(){
+
+        func();
+        
+    },delay)
+        
+}
+
+
+</script>
+
+
+
+
+
+
+
+
