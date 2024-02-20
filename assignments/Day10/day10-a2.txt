@@ -1,0 +1,78 @@
+1) db.collection.aggregate([
+  { $unwind: "$orders" },
+  { $group: { _id: "$name", totalOrders: { $sum: 1 } } }
+])
+
+
+2) db.collection.aggregate([
+  { $unwind: "$orders" },
+  { $group: { _id: "$name", totalPrice: { $sum: "$orders.price" } } }
+])
+
+
+3) db.collection.aggregate([
+  { $unwind: "$orders" },
+  { $group: { _id: "$name", avgPrice: { $avg: "$orders.price" } } }
+])
+
+
+4) db.collection.aggregate([
+  { $unwind: "$orders" },
+  { $group: { _id: "$name", highestPrice: { $max: "$orders.price" } } }
+])
+
+5) db.collection.aggregate([
+  { $unwind: "$orders" },
+  { $group: { _id: "$name", lowestPrice: { $min: "$orders.price" } } }
+])
+
+
+6)db.collection.aggregate([
+  { $unwind: "$orders" },
+  { $group: { _id: "$name", 
+              totalOrders: { $sum: 1 }, 
+              totalPrice: { $sum: "$orders.price" } 
+            } 
+  }
+])
+
+
+7) db.collection.aggregate([
+  { $unwind: "$orders" },
+  { $group: { _id: "$name", 
+              totalOrders: { $sum: 1 }, 
+              avgPrice: { $avg: "$orders.price" } 
+            } 
+  }
+])
+
+
+8) db.collection.aggregate([
+  { $unwind: "$orders" },
+  { $group: { _id: "$name", 
+              highestPrice: { $max: "$orders.price" }, 
+              lowestPrice: { $min: "$orders.price" } 
+            } 
+  }
+])
+
+
+9) db.collection.aggregate([
+  { $unwind: "$orders" },
+  { $group: { _id: "$name", 
+              totalOrders: { $sum: 1 }, 
+              highestPrice: { $max: "$orders.price" } 
+            } 
+  }
+])
+
+
+10) db.collection.aggregate([
+  { $unwind: "$orders" },
+  { $group: { _id: "$name", 
+              totalOrders: { $sum: 1 }, 
+              totalPrice: { $sum: "$orders.price" },
+              avgPrice: { $avg: "$orders.price" } 
+            } 
+  }
+])
