@@ -1,0 +1,22 @@
+db.products.aggregate([
+  {
+    $lookup: {
+      from: "categories",
+      localField: "category",
+      foreignField: "_id",
+      as: "category"
+    }
+  },
+  {
+    $unwind: "$category" // Unwind the category array
+  },
+  {
+    $group: {
+      _id: "$category.name",
+      count: { $sum: 1 } // Count the number of products in each category
+    }
+  },
+  {
+    $sort: { _id: 1 } // Sort by category name
+  }
+])

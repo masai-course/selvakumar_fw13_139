@@ -1,0 +1,71 @@
+// Create the first collection with personal information
+db.personalInfo.insertMany([
+   { _id: 1, name: "John", age: 25, address: "123 Main St" },
+   { _id: 2, name: "Jane", age: 35, address: "456 Main St" },
+   { _id: 3, name: "Bob", age: 45, address: "789 Main St" },
+   { _id: 4, name: "Alice", age: 55, address: "246 Main St" }
+])
+
+
+// Create the second collection with zip code information
+db.zipCodes.insertMany([
+   { _id: 1, address: "123 Main St", zipcode: "12345" },
+   { _id: 2, address: "456 Main St", zipcode: "54321" },
+   { _id: 3, address: "789 Main St", zipcode: "98765" },
+   { _id: 4, address: "246 Main St", zipcode: "24680" }
+])
+
+
+// Create the third collection with city and state information
+db.cityState.insertMany([
+   { _id: 1, zipcode: "12345", city: "New York", state: "NY" },
+   { _id: 2, zipcode: "54321", city: "Chicago", state: "IL" },
+   { _id: 3, zipcode: "98765", city: "Los Angeles", state: "CA" },
+   { _id: 4, zipcode: "24680", city: "Miami", state: "FL" }
+])
+
+
+// Create the fourth collection with country information
+db.country.insertMany([
+   { _id: 1, state: "NY", country: "USA" },
+   { _id: 2, state: "IL", country: "USA" },
+   { _id: 3, state: "CA", country: "USA" },
+   { _id: 4, state: "FL", country: "USA" },
+   { _id: 5, state: "MH", country: "India" },
+   { _id: 6, state: "DL", country: "India" }
+])
+
+
+db.personalInfo.aggregate([
+   {
+      $lookup: {
+         from: "zipCodes",
+         localField: "address",
+         foreignField: "address",
+         as: "zip_info"
+      }
+   },
+   {
+      $unwind: "$zip_info"
+   },
+   {
+      $lookup: {
+         from: "cityState",
+         localField: "zip_info.zipcode",
+         foreignField: "zipcode",
+         as: "city_state_info"
+      }
+   },
+   {
+      $unwind: "$city_state_info"
+   },
+   {
+      $lookup: {
+         from: "country",
+         localField: "city_state_info.state",
+         foreignField: "state",
+         as: "country_info"
+      }
+   }
+])
+

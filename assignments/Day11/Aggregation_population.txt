@@ -1,0 +1,29 @@
+db.cities.aggregate([
+  {
+    $match: {
+      pop: { $gt: 5000 } // Filter out cities with population less than or equal to 5000
+    }
+  },
+  {
+    $group: {
+      _id: "$state",
+      totalPopulation: { $sum: "$pop" } // Group by state and calculate total population for each state
+    }
+  },
+  {
+    $sort: { totalPopulation: -1 } // Sort the documents by total population in descending order
+  },
+  {
+    $skip: 2 // Skip the first 2 documents in the sorted list
+  },
+  {
+    $limit: 2 // Limit the output to 2 documents
+  },
+  {
+    $project: {
+      _id: 0, // Exclude the default _id field
+      state: "$_id", // Project the state field
+      totalPopulation: 1 // Project the total population field
+    }
+  }
+])
