@@ -1,0 +1,24 @@
+{
+  "quizes": [
+    {
+      "problem": "What is React?",
+      "a": "Framework",
+      "b": "Library",
+      "c": "Package",
+      "d": "None",
+      "correct": "b",
+      "weightage": 3,
+      "id": 1
+    },
+    {
+      "problem": "sdf",
+      "a": "esd",
+      "b": "sdfg",
+      "c": "qwesdfg",
+      "d": "qwedfg",
+      "correct": "c",
+      "weightage": "9",
+      "id": 2
+    }
+  ]
+}
