@@ -31,36 +31,6 @@
       ]
     },
     {
-      "id": 3,
-      "stateName": "Jammu & Kashmir",
-      "population": 13606320,
-      "GDPRanking": 21,
-      "image": "https://source.unsplash.com/500x300?Jammu&Kashmir",
-      "language": "Urdu",
-      "capital": "Srinagar (summer), Jammu (winter)",
-      "region": "North India",
-      "tourismPlaces": [
-        "Srinagar",
-        "Gulmarg",
-        "Leh"
-      ]
-    },
-    {
-      "id": 4,
-      "stateName": "Goa",
-      "population": 154243,
-      "GDPRanking": 23,
-      "image": "https://source.unsplash.com/500x300?Goa",
-      "language": "Konkani",
-      "capital": "Panaji",
-      "region": "West India",
-      "tourismPlaces": [
-        "Baga Beach",
-        "Dudhsagar Waterfalls",
-        "Old Goa"
-      ]
-    },
-    {
       "id": 5,
       "stateName": "Tamil Nadu",
       "population": 77841267,
@@ -509,6 +479,149 @@
         "Mussoorie",
         "Haridwar"
       ]
+    },
+    {
+      "stateName": "gfdgfd",
+      "population": 233,
+      "GDPRanking": "",
+      "image": "",
+      "language": "",
+      "capital": "",
+      "region": "",
+      "tourismPlaces": [
+        ""
+      ],
+      "id": 35
+    },
+    {
+      "stateName": "gfdgfd",
+      "population": 233,
+      "GDPRanking": "",
+      "image": "",
+      "language": "",
+      "capital": "",
+      "region": "",
+      "tourismPlaces": [
+        ""
+      ],
+      "id": 36
+    },
+    {
+      "stateName": "gfdgfd",
+      "population": 233,
+      "GDPRanking": "12",
+      "image": "",
+      "language": "tamil",
+      "capital": "dfdg",
+      "region": "gfdgfd",
+      "tourismPlaces": [
+        "sgfd"
+      ],
+      "id": 37
+    },
+    {
+      "stateName": "",
+      "population": 233,
+      "GDPRanking": "12",
+      "image": "",
+      "language": "tamil",
+      "capital": "dfdg",
+      "region": "gfdgfd",
+      "tourismPlaces": [
+        "sgfd"
+      ],
+      "id": 38
+    },
+    {
+      "stateName": "",
+      "population": 233,
+      "GDPRanking": "12",
+      "image": "",
+      "language": "tamil",
+      "capital": "dfdg",
+      "region": "gfdgfd",
+      "tourismPlaces": [
+        "sgfd"
+      ],
+      "id": 39
+    },
+    {
+      "stateName": "",
+      "population": 233,
+      "GDPRanking": "12",
+      "image": "",
+      "language": "tamil",
+      "capital": "dfdg",
+      "region": "gfdgfd",
+      "tourismPlaces": [
+        "sgfd"
+      ],
+      "id": 40
+    },
+    {
+      "stateName": "hello",
+      "population": 233,
+      "GDPRanking": "12",
+      "image": "",
+      "language": "tamil",
+      "capital": "dfdg",
+      "region": "gfdgfd",
+      "tourismPlaces": [
+        "sgfd"
+      ],
+      "id": 41
+    },
+    {
+      "stateName": "hello",
+      "population": 233,
+      "GDPRanking": "12",
+      "image": "",
+      "language": "tamil",
+      "capital": "dfdg",
+      "region": "gfdgfd",
+      "tourismPlaces": [
+        "sgfd"
+      ],
+      "id": 42
+    },
+    {
+      "stateName": "hello",
+      "population": 233,
+      "GDPRanking": "12",
+      "image": "",
+      "language": "tamil",
+      "capital": "dfdg",
+      "region": "gfdgfd",
+      "tourismPlaces": [
+        "sgfd"
+      ],
+      "id": 43
+    },
+    {
+      "stateName": "hello",
+      "population": 233,
+      "GDPRanking": "12",
+      "image": "",
+      "language": "tamil",
+      "capital": "dfdg",
+      "region": "gfdgfd",
+      "tourismPlaces": [
+        "sgfd"
+      ],
+      "id": 44
+    },
+    {
+      "stateName": "hello",
+      "population": 233,
+      "GDPRanking": "12",
+      "image": "",
+      "language": "tamil",
+      "capital": "dfdg",
+      "region": "gfdgfd",
+      "tourismPlaces": [
+        "sgfd"
+      ],
+      "id": 45
     }
   ]
 }
