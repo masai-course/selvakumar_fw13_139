@@ -1,8 +1,11 @@
-import React from "react";
+// Components/Navbar.tsx
+import React from 'react';
+
 interface NavbarProps {
-  pageName: string;
+    pageName: string;
 }
-export const Navbar : React.FC<NavbarProps> = ({ pageName }) => {
+
+const Navbar: React.FC<NavbarProps> = ({ pageName }) => {
   return (
     <div>
       <span style={{margin:'50px'}}>Masai Post</span>
@@ -12,13 +15,13 @@ export const Navbar : React.FC<NavbarProps> = ({ pageName }) => {
       </a>
       </span>
       <span style={{margin:'50px'}}>
-      <a className="all-problems" href="/all-problems">
-        All Problems
+      <a className="all-problems" href="/add-post">
+        Add New Post
       </a>
       </span>
       <h3 data-testid="page-name">{pageName}</h3>
     </div>
-
-    
   );
 };
+
+export {Navbar};
