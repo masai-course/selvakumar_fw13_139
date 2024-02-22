@@ -69,16 +69,16 @@ const AddPost: React.FC = () => {
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="Name"
-                    className="input.post-names"
+                    className="post-name"
                     required
                 />
-                   <input
+                <input
                     type="text"
                     name="image"
                     value={formData.image}
                     onChange={handleChange}
                     placeholder="Image URL"
-                    className="input.post-image"
+                    className="post-image"
                     required
                 />
                 <input
@@ -87,24 +87,23 @@ const AddPost: React.FC = () => {
                     value={formData.author}
                     onChange={handleChange}
                     placeholder="Author"
-                    className="input.post-author"
+                    className="post-author"
                     required
                 />
-             
                 <input
                     type="text"
                     name="content"
                     value={formData.content}
                     onChange={handleChange}
                     placeholder="Content"
-                    className="input.post-content"
+                    className="post-content"
                     required
                 />
                 <select
                     name="category"
                     value={formData.category}
                     onChange={handleChange}
-                    className="select.post-category"
+                    className="post-category"
                     required
                 >
                     <option value="">Select Category</option>
